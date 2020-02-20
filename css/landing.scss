@@ -1,0 +1,87 @@
+$darkblue: #0367a3;
+$lightblue: #0079bf;
+
+$lightgrey: #e6e6e6;
+$darkgrey: #707070;
+
+$yellow: #FFCA00;
+
+$shadow-light: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+$shadow-medium: 0px 5px 15px 0px rgba(0, 0, 0, 0.5);
+$shadow-right: 10px 0px 10px -5px rgba(0,0,0,0.5);
+
+main{
+	background-image: url('../img/planner.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 600px;
+    width: 1250px;
+    height: 800px;
+    position: relative;
+    margin: 5em auto;
+    box-shadow: $shadow-medium;
+    border-radius: 2em;
+    form{
+		width: 500px;
+		height: 100%;
+		background: rgb(230, 230, 230);
+		padding: 11em 0px;
+		text-align: center;
+	    border-radius: 2em;
+	    box-shadow: $shadow-right;
+		p{
+			width: 10em;
+			font-size: 1.25em;
+			margin-bottom: 2em;
+			display: inline-block;
+			border-bottom: 1px solid $darkgrey;
+		    cursor: pointer;
+		    color: $darkgrey;
+		    &:hover{
+		    	color: $lightblue;
+		    	border-bottom: 2px solid $lightblue;
+		    }
+		}
+		.selected{
+			@extend p, :hover;
+		}
+    	input{
+			display: block;
+			width: 20em;
+			border: 1px solid $lightgrey;
+			text-align: center;
+			border-radius: 5em;
+			font-size: 1.25em;
+			margin: 1em auto;
+			height: 2em;
+			::placeholder{
+				color: $lightgrey;
+			}
+    	}
+    	button{
+			width: 12.5em;
+			height: 3em;
+			color: white;
+			background-color: $lightblue;
+			border-radius: 5em;
+		    margin: 2em 0;
+			cursor: pointer;
+			&:hover{
+				background-color: white;
+				color: $lightblue;
+			}
+    	}
+    	span{
+    		color: $lightblue;
+    		cursor: pointer;
+    	}
+    	.error{
+			display: block;
+			width: 25em;
+			height: 3em;
+			margin: 2em auto;
+			line-height: 3em;
+			border-radius: 5em;
+    	}
+    }
+}

@@ -1,0 +1,11 @@
+database:
+
+1. users 
+2. rights (bevat admin rollen die toegewezen zijn aan een relationeel ID)
+
+
+table
+
+
+tablerow
+bevat informatie over kaarten
