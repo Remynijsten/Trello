@@ -29,6 +29,10 @@ switch($_POST['function']){
 	case 'check':
 		checkExist($_POST);
 	break;
+
+	case 'login':
+		loginUser($_POST);
+	break;
 }
 
 
@@ -61,6 +65,34 @@ function updateUser($data){
 }
 
 function deleteUser($data){
+}
+
+function loginUser($data){
+
+	global $conn;
+
+	$stmt = $conn->prepare("SELECT * FROM `users` WHERE mail=:mail");
+	$stmt->bindParam(':mail', $data['mail']);
+	$stmt->execute();
+	$count= $stmt->rowCount();
+
+	if($count == 0){
+		echo 'wrong mail';
+	}
+
+	else if($count > 0){
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		if($_POST['password'] == $result['password']){
+			echo 'success';
+			$_SESSION['start'] = true;
+			$_SESSION['name'] = $result['name'];
+			$_SESSION['mail'] = $result['mail'];
+		}
+		else{
+			echo 'wrong password';
+		}
+	}
 }
 
 ?>

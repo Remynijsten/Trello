@@ -1,0 +1,67 @@
+@import 'colors.scss';
+
+body{
+	background: $lightblue;
+	width: 100%;
+	height: 100vh;
+}
+
+
+main.boardsContainer{
+	display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+	.board{
+		min-width: 20em;
+		margin: 1em;
+		background: #CCCCCC;
+		position: relative;
+		display: inline-block;
+		height: fit-content;
+		.title{
+		    width: 15em;
+		    margin: 1em;
+		    border-radius: 5em;
+		    border: none;
+		}
+		header{
+		    display: block;
+		    width: 100%;
+		    padding: 1rem 1.5rem;
+		    cursor: pointer;
+	        font-weight: bold;
+		}
+		.card{
+			width: 90%;
+			background: white;
+			min-height: 3em;
+		    margin: 0.5em 1em;
+	        padding-left: 0.5rem;
+		    position: relative;
+		    i{
+		    	margin: 0.5em;
+		    	transition: 0.2s ease-out;
+		    	cursor: pointer;
+		    	&:hover{
+		    		transform: scale(0.9, 0.9);
+		    	}
+		    }
+		}
+		footer{
+	        width: 7.5em;
+		    margin: 1em 1.5rem;
+		    cursor: pointer;
+		}
+	}
+}
+
+.addList{
+	width: 15em;
+	height: 3em;
+	color: white;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 5em;
+	border: none;
+	margin: 1em;
+	display: inline-block;
+}

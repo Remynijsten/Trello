@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/global.css">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,700&display=swap" rel="stylesheet">
 	</head>
 	<body>
 

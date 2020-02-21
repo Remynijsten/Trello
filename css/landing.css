@@ -1,4 +1,4 @@
-main {
+.loginContainer {
   background-image: url("../img/planner.svg");
   background-repeat: no-repeat;
   background-position: right;
@@ -10,7 +10,7 @@ main {
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.5);
   border-radius: 2em;
 }
-main form {
+.loginContainer form {
   width: 500px;
   height: 100%;
   background: #e6e6e6;
@@ -19,7 +19,7 @@ main form {
   border-radius: 2em;
   box-shadow: 10px 0px 10px -5px rgba(0, 0, 0, 0.5);
 }
-main form p, main form .selected {
+.loginContainer form p, .loginContainer form .selected {
   width: 10em;
   font-size: 1.25em;
   margin-bottom: 2em;
@@ -28,11 +28,11 @@ main form p, main form .selected {
   cursor: pointer;
   color: #707070;
 }
-main form p:hover, main form .selected {
+.loginContainer form p:hover, .loginContainer form .selected {
   color: #0079bf;
   border-bottom: 2px solid #0079bf;
 }
-main form input {
+.loginContainer form input {
   display: block;
   width: 20em;
   border: 1px solid #e6e6e6;
@@ -42,10 +42,10 @@ main form input {
   margin: 1em auto;
   height: 2em;
 }
-main form input ::placeholder {
+.loginContainer form input ::placeholder {
   color: #e6e6e6;
 }
-main form button {
+.loginContainer form button {
   width: 12.5em;
   height: 3em;
   color: white;
@@ -54,21 +54,29 @@ main form button {
   margin: 2em 0;
   cursor: pointer;
 }
-main form button:hover, main form button.selected {
+.loginContainer form button:hover, .loginContainer form button.selected {
   background-color: white;
   color: #0079bf;
 }
-main form span {
+.loginContainer form .clickhere {
   color: #0079bf;
   cursor: pointer;
 }
-main form .error {
-  display: block;
+.loginContainer form .error {
   width: 25em;
   height: 3em;
   margin: 2em auto;
   line-height: 3em;
   border-radius: 5em;
+}
+.loginContainer form .error .errorMSG {
+  display: inline-block;
+  color: white;
+}
+.loginContainer form .error .spinner {
+  display: inline-block;
+  color: white;
+  margin-left: 2em;
 }
 
 /*# sourceMappingURL=landing.css.map */

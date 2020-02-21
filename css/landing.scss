@@ -10,7 +10,7 @@ $shadow-light: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
 $shadow-medium: 0px 5px 15px 0px rgba(0, 0, 0, 0.5);
 $shadow-right: 10px 0px 10px -5px rgba(0,0,0,0.5);
 
-main{
+.loginContainer{
 	background-image: url('../img/planner.svg');
     background-repeat: no-repeat;
     background-position: right;
@@ -71,17 +71,25 @@ main{
 				color: $lightblue;
 			}
     	}
-    	span{
+    	.clickhere{
     		color: $lightblue;
     		cursor: pointer;
     	}
     	.error{
-			display: block;
 			width: 25em;
 			height: 3em;
 			margin: 2em auto;
 			line-height: 3em;
 			border-radius: 5em;
+			.errorMSG{
+				display: inline-block;
+				color: white;
+			}
+			.spinner{
+				display: inline-block;
+				color: white;
+				margin-left: 2em;
+			}
     	}
     }
 }
