@@ -13,7 +13,7 @@
 
 		<h6>forgot your password?  <span class="clickhere">Click here</span></h6>
 
-		<div class="w3-panel w3-hide w3-animate-opacity error">
+		<div class="w3-panel w3-hide error animated">
 			<span class="errorMSG"></span>
 			<span id="spinner" class="spinner w3-hide"><i class="fa fa-spinner w3-spin"></i></span>
 		</div>

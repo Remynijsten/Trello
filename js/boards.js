@@ -1,5 +1,5 @@
 document.querySelector('header button').style.display = "inline-block";
-document.querySelector('.logout').addEventListener("click", function(){window.location.href="session.php"});
+document.querySelector('.logout').addEventListener("click", function(){window.location.href="../controller/session.php"});
 // document.querySelector('.board header').setAttribute("onclick", "changeText(this)");
 // document.querySelector('.board footer').addEventListener("click", addCard);
 document.querySelector('.addList').addEventListener("click", addList);
@@ -40,7 +40,8 @@ function changeText(e){
 				menu.classList.add('fas', 'fa-ellipsis-h', 'w3-display-topright');
 				menu.setAttribute('onclick', 'changeText(this.parentNode)');
 				header.appendChild(menu);	
-
+			}else{
+				header.setAttribute('onclick', 'changeText(this)');
 			}
 
 
@@ -56,7 +57,11 @@ function addList(){
 	var board = document.querySelector('.board');
 
 	var list = document.createElement('div');
-	list.classList.add('w3-round-xlarge', 'board');
+	list.classList.add('w3-round-xlarge', 'board', 'animated','tada');
+
+	var remove = document.createElement('i');
+	remove.classList.add('far', 'fa-trash-alt', 'w3-display-topright', 'remove');
+	remove.setAttribute('onclick', 'removeList(this)');
 
 	var title = document.createElement('header');
 	title.setAttribute('onclick', 'changeText(this)');
@@ -66,9 +71,10 @@ function addList(){
 	footer.addEventListener("click", addCard);
 	footer.innerHTML = "Add a card +"
 
+	list.appendChild(remove);
 	list.appendChild(title);
 	list.appendChild(footer);
-	document.querySelector('.boardsContainer').appendChild(list);
+	document.querySelector('.boardsContainer').insertBefore(list, document.querySelector('.addList'));
 }
 
 
@@ -87,5 +93,14 @@ function addCard(){
 	board.insertBefore(input, this.parentNode.lastChild);
 }
 
+function removeList(e){
+	var list = e.parentNode.parentNode;
+	e.parentNode.classList.remove('tada');
+	e.parentNode.classList.add('zoomOut');
 
+	setTimeout(function(){
+		list.removeChild(e.parentNode);	
+	}, 450);
 
+	
+}

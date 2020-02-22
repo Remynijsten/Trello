@@ -4,7 +4,7 @@
 ?>
 
 <header class="navBar">
-	<img src="img/logo.png" alt="header logo">
+	<img src="../img/logo.png" alt="header logo">
 	<p>Welcome <? echo $name ?></p>
 
 	<button class="logout">Log out</button>

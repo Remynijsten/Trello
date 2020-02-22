@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			case 'check':
 				var data = new FormData(document.querySelector('.userForm'));
 				var ajax = new XMLHttpRequest();
-				ajax.open("POST", "users.php", false);
+				ajax.open("POST", "model/users.php", false);
 				ajax.send(data);
 				var response = ajax.responseText;
 				console.log(response);
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			case 'create':
 				var data = new FormData(document.querySelector('.userForm'));
 				var ajax = new XMLHttpRequest();
-				ajax.open("POST", "users.php", false);
+				ajax.open("POST", "model/users.php", false);
 				ajax.send(data);
 				var response = ajax.responseText;
 				if(response == 'success'){
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			case 'login':
 				var data = new FormData(document.querySelector('.userForm'));
 				var ajax = new XMLHttpRequest();
-				ajax.open("POST", "users.php", false);
+				ajax.open("POST", "/Trello/model/users.php", false);
 				ajax.send(data);
 				var response = ajax.responseText;
 				switch(response){

@@ -17,6 +17,14 @@ main.boardsContainer .board {
   display: inline-block;
   height: fit-content;
 }
+main.boardsContainer .board .remove {
+  margin: 1em;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+}
+main.boardsContainer .board .remove:hover {
+  transform: scale(0.9, 0.9);
+}
 main.boardsContainer .board .title {
   width: 15em;
   margin: 1em;
@@ -25,7 +33,7 @@ main.boardsContainer .board .title {
 }
 main.boardsContainer .board header {
   display: block;
-  width: 100%;
+  width: 85%;
   padding: 1rem 1.5rem;
   cursor: pointer;
   font-weight: bold;
@@ -53,7 +61,7 @@ main.boardsContainer .board footer {
 }
 
 .addList {
-  width: 15em;
+  min-width: 15em;
   height: 3em;
   color: white;
   background: rgba(255, 255, 255, 0.2);
@@ -61,6 +69,11 @@ main.boardsContainer .board footer {
   border: none;
   margin: 1em;
   display: inline-block;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+}
+.addList:hover {
+  transform: scale(0.9, 0.9);
 }
 
 /*# sourceMappingURL=boards.css.map */
