@@ -39,6 +39,16 @@ main.boardsContainer .board header {
   cursor: pointer;
   font-weight: bold;
 }
+main.boardsContainer .board .headerInput {
+  width: 80%;
+  background: white;
+  min-height: 3em;
+  margin: 0.5em 1em;
+  padding-left: 0.5rem;
+  position: relative;
+  display: inline-block;
+  line-height: 3em;
+}
 main.boardsContainer .board .cardWrapper {
   position: relative;
 }

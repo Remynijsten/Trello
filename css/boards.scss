@@ -14,7 +14,6 @@ body{
 	height: 100vh;
 }
 
-
 main.boardsContainer{
 	display: flex;
     flex-wrap: nowrap;
@@ -43,6 +42,16 @@ main.boardsContainer{
 		    padding: 1rem 1.5rem;
 		    cursor: pointer;
 	        font-weight: bold;
+		}
+		.headerInput{
+				width: 80%;
+				background: white;
+				min-height: 3em;
+			    margin: 0.5em 1em;
+		        padding-left: 0.5rem;
+			    position: relative;
+			    display: inline-block;
+			    line-height: 3em;
 		}
 		.cardWrapper{
 			position: relative;
@@ -111,9 +120,5 @@ main.boardsContainer{
 	border: none;
 	margin: 1em;
 	display: inline-block;
-	transition: 0.2s ease-out;
-	cursor: pointer;
-	&:hover{
-		transform: scale(0.9, 0.9);
-	}
+	@include hoverFX;
 }
