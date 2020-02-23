@@ -35,7 +35,6 @@ switch($_POST['function']){
 	break;
 }
 
-
 function checkExist($data){
 	global $conn;
 	

@@ -16,6 +16,7 @@ main.boardsContainer .board {
   position: relative;
   display: inline-block;
   height: fit-content;
+  transition: 0.2s ease-out;
 }
 main.boardsContainer .board .remove {
   margin: 1em;
@@ -38,20 +39,60 @@ main.boardsContainer .board header {
   cursor: pointer;
   font-weight: bold;
 }
-main.boardsContainer .board .card {
-  width: 90%;
+main.boardsContainer .board .cardWrapper {
+  position: relative;
+}
+main.boardsContainer .board .cardWrapper .card {
+  width: 80%;
   background: white;
   min-height: 3em;
   margin: 0.5em 1em;
   padding-left: 0.5rem;
   position: relative;
+  display: inline-block;
 }
-main.boardsContainer .board .card i {
+main.boardsContainer .board .cardWrapper .card ul {
+  list-style: none;
+  position: absolute;
+  right: -7em;
+  top: 0;
+  min-height: 7.5em;
+  line-height: 2.5em;
+  background: white;
+}
+main.boardsContainer .board .cardWrapper .card i {
   margin: 0.5em;
   transition: 0.2s ease-out;
   cursor: pointer;
 }
-main.boardsContainer .board .card i:hover {
+main.boardsContainer .board .cardWrapper .card i:hover {
+  transform: scale(0.9, 0.9);
+}
+main.boardsContainer .board .cardWrapper .menudots {
+  transition: 0.2s ease-out;
+  cursor: pointer;
+  position: absolute;
+  right: 1em;
+  padding-top: 20px;
+}
+main.boardsContainer .board .cardWrapper .menudots:hover {
+  transform: scale(0.9, 0.9);
+}
+main.boardsContainer .board .cardWrapper ul {
+  list-style: none;
+  position: absolute;
+  right: -12em;
+  top: 0.5em;
+  background: white;
+  padding: 0 2em;
+  border-radius: 1em;
+}
+main.boardsContainer .board .cardWrapper ul li {
+  transition: 0.2s ease-out;
+  cursor: pointer;
+  line-height: 2.5em;
+}
+main.boardsContainer .board .cardWrapper ul li:hover {
   transform: scale(0.9, 0.9);
 }
 main.boardsContainer .board footer {
