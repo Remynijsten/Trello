@@ -100,7 +100,13 @@ main.boardsContainer{
 			    	@include hoverFX;
 			    	line-height: 2.5em;
 			    }
-		    }
+			    i{
+					width: 5.5em;
+					text-align: center;
+					line-height: 2.5em;
+					@include hoverFX;
+			    }
+		    }	
 		}
 
 		footer{

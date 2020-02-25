@@ -73,7 +73,7 @@ function loginUser($data){
 	$stmt = $conn->prepare("SELECT * FROM `users` WHERE mail=:mail");
 	$stmt->bindParam(':mail', $data['mail']);
 	$stmt->execute();
-	$count= $stmt->rowCount();
+	$count = $stmt->rowCount();
 
 	if($count == 0){
 		echo 'wrong mail';
@@ -83,10 +83,12 @@ function loginUser($data){
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
 
 		if($_POST['password'] == $result['password']){
-			echo 'success';
+			
 			$_SESSION['start'] = true;
 			$_SESSION['name'] = $result['name'];
 			$_SESSION['mail'] = $result['mail'];
+			$_SESSION['id'] = $result['id'];
+			echo 'success';
 		}
 		else{
 			echo 'wrong password';

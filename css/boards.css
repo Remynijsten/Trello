@@ -105,6 +105,16 @@ main.boardsContainer .board .cardWrapper ul li {
 main.boardsContainer .board .cardWrapper ul li:hover {
   transform: scale(0.9, 0.9);
 }
+main.boardsContainer .board .cardWrapper ul i {
+  width: 5.5em;
+  text-align: center;
+  line-height: 2.5em;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+}
+main.boardsContainer .board .cardWrapper ul i:hover {
+  transform: scale(0.9, 0.9);
+}
 main.boardsContainer .board footer {
   width: 7.5em;
   margin: 1em 1.5rem;

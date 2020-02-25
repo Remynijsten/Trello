@@ -1,6 +1,5 @@
+function addCard(e, config){
 
-
-function addCard(e){
 	// check of het maximale aantal cards is bereikt
 	var childCount = 0;
 
@@ -36,10 +35,16 @@ function addCard(e){
 		remove.innerText = "Remove Card";
 
 		var openmenu = document.createElement('li');
+		openmenu.setAttribute('onclick', 'cardModal(this)');
 		openmenu.innerText = "Open Menu";
+
+		var close = document.createElement('i');
+		close.setAttribute('onclick', 'hideCards()');
+		close.classList.add('fas', 'fa-angle-left', 'closeSubmenu', 'animated', 'pulse', 'infinite');
 
 		list.appendChild(remove);
 		list.appendChild(openmenu);
+		list.appendChild(close);
 
 		var menu = document.createElement('i');
 		menu.classList.add('fas', 'fa-ellipsis-h', 'menudots');
@@ -50,10 +55,38 @@ function addCard(e){
 		container.appendChild(input);
 		container.appendChild(menu);
 		container.appendChild(list);
+
+		if(config == 'post'){
+			// maakt een row aan voor de card in de database
+			var ajax = new XMLHttpRequest();
+
+			var list_id = e.parentNode.getAttribute('data-id');
+			
+			var data = `list_id=${list_id}&function=create`;
+			ajax.open("POST", "../model/cards.php", false);
+
+			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			ajax.send(data);			
+		}
+
+		//returned de data van deze lijst en voegt deze toe als data
+		var ajax = new XMLHttpRequest();
+		var data = 'function=last';
+		ajax.open("POST", "/Trello/model/cards.php", true);
+
+		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		ajax.onreadystatechange = function() {
+			if (ajax.readyState == 4 && ajax.status == 200) {
+				var result = JSON.parse(ajax.responseText);
+				container.setAttribute('data-id', result.id);
+			}
+		};
+		ajax.send(data);
 	}
 }
 
 function readCard(){
+
 
 }
 
@@ -85,17 +118,22 @@ function updateCard(e){
 			var txt = document.createTextNode(name);
 			input.value.length == 0 ? header.innerHTML = initName : txt.innerHTML = name;
 
-			// header.setAttribute("onclick", "updateCard(this)");
-
-			if (tagname != "HEADER"){
-				header.setAttribute('onclick', 'updateCard(this)');
-			}else{
-				header.setAttribute('onclick', 'updateCard(this)');
-			}
-
 			header.appendChild(txt);
 			board.insertBefore(header, input);
 			board.removeChild(input);
+
+			var ajax = new XMLHttpRequest();
+
+			var status = "";
+
+			var description = header.innerHTML;
+			var id = board.getAttribute('data-id')
+			
+			var data = `description=${description}&id=${id}&function=update`;
+			ajax.open("POST", "../model/cards.php", false);
+
+			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			ajax.send(data);
 		}		
 	});
 }
@@ -103,7 +141,15 @@ function updateCard(e){
 function deleteCard(e){
 	hideCards();
 
+	var id = e.parentNode.parentNode.getAttribute('data-id');
 
+	// verwijder card uit database aan de hand van de data attributen
+	var ajax = new XMLHttpRequest();
+	var data = `id=${id}&function=delete`;
+	ajax.open("POST", "../model/cards.php", false);
+
+	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	ajax.send(data);
 
 	e.parentNode.parentNode.classList.remove('bounceInDown');
 	e.parentNode.parentNode.classList.add('animated', 'zoomOut');
@@ -112,25 +158,6 @@ function deleteCard(e){
 		e.parentNode.parentNode.parentNode.removeChild(e.parentNode.parentNode);
 	}, 500);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // functie voor het verwijderen van de hide class van het card menu en het opschuiven van het volgende element
 function openCardMenu(e){
