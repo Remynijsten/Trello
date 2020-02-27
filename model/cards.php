@@ -10,11 +10,15 @@ switch($_POST['function']){
 	break;
 
 	case "read":
+<<<<<<< HEAD
 		readCard($_POST);
 	break;
 
 	case "readId":
 		readCardId($_POST);
+=======
+		readCard();
+>>>>>>> master
 	break;
 
 	case "update":
@@ -28,6 +32,7 @@ switch($_POST['function']){
 	case "last":
 		returnLast();
 	break;
+<<<<<<< HEAD
 
 	case "deleteList":
 		deleteListCards($_POST);
@@ -36,6 +41,8 @@ switch($_POST['function']){
 	case "status":
 		updateStatus($_POST);
 	break;
+=======
+>>>>>>> master
 }
 
 
@@ -47,6 +54,7 @@ function createCard($data){
 	$stmt->execute();
 }
 
+<<<<<<< HEAD
 function readCard($data){
 	global $conn;
 
@@ -84,6 +92,12 @@ function readCardId($data){
 
 	$stmt = $conn->prepare("SELECT * FROM `cards` WHERE id = :id");
 	$stmt->bindParam(':id', $id);
+=======
+function readCard(){
+	global $conn;
+
+	$stmt = $conn->prepare("SELECT * FROM `cards`");
+>>>>>>> master
 	$stmt->execute();
 	$result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 	print_r(json_encode($result));
@@ -118,6 +132,7 @@ function returnLast(){
 	print_r(json_encode($result));
 }
 
+<<<<<<< HEAD
 function deleteListCards($data){
 	global $conn;
 
@@ -141,4 +156,6 @@ function updateStatus($data){
 	$stmt->execute();
 }
 
+=======
+>>>>>>> master
 ?>

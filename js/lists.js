@@ -1,5 +1,6 @@
 document.querySelector('header button').style.display = "inline-block";
 document.querySelector('.logout').addEventListener("click", function(){window.location.href="../controller/session.php"});
+<<<<<<< HEAD
 document.querySelector('.addList').setAttribute("onclick", "addList('post')");
 document.querySelector('.sortText').setAttribute("onclick", 'showSortMenu()');
 
@@ -8,6 +9,15 @@ document.querySelector('.sortText').setAttribute("onclick", 'showSortMenu()');
 
 // functie voor het toevoegen van een lijst aan de database & DOM
 function addList(config, list_id, listTitle){
+=======
+// document.querySelector('.board header').setAttribute("onclick", "updateCard(this)");
+// document.querySelector('.board footer').addEventListener("click", addCard);
+document.querySelector('.addList').setAttribute("onclick", "addList('post')");
+
+
+// functie voor het toevoegen van een lijst aan de database & DOM
+function addList(config="", list_id){
+>>>>>>> master
 	// verberg alle card menus
 	hideCards();
 
@@ -26,7 +36,11 @@ function addList(config, list_id, listTitle){
 	title.innerHTML = listTitle;
 
 	var footer = document.createElement('footer');
+<<<<<<< HEAD
 	footer.setAttribute("onclick", "addCard(this, 'post', '')");
+=======
+	footer.setAttribute("onclick", "addCard(this, 'post')");
+>>>>>>> master
 	footer.innerHTML = "Add a card +"
 
 	list.appendChild(remove);
@@ -42,6 +56,10 @@ function addList(config, list_id, listTitle){
 
 		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		ajax.send(data);
+<<<<<<< HEAD
+=======
+	}
+>>>>>>> master
 
 	}
 	//returned de data van deze lijst en voegt deze toe als data
@@ -54,16 +72,22 @@ function addList(config, list_id, listTitle){
 		if (ajax.readyState == 4 && ajax.status == 200) {
 			var result = JSON.parse(ajax.responseText);
 
+<<<<<<< HEAD
 
 			config == 'post' ? list.setAttribute('data-id', result.id) : list.setAttribute('data-id', list_id);
+=======
+			list.setAttribute('data-id', list_id);
+>>>>>>> master
 			list.setAttribute('data-user', result.user);
 		}
 	};
+
 	ajax.send(data);
 }
 
 function readList(id){
 	id = parseInt(id);
+<<<<<<< HEAD
 
 	var lists = document.querySelectorAll('.board');
 
@@ -120,10 +144,21 @@ function loadList(filter, color){
 				}					
 			}, 250)
 
+=======
+
+	var lists = document.querySelectorAll('.board');
+
+	for (var i = 0 ; i< lists.length ; i++){
+
+		if(parseInt(lists[i].getAttribute('data-id')) == id){
+
+			return lists[i].lastChild;
+			
+>>>>>>> master
 		}
-	};
-	ajax.send(data);
+	}
 }
+<<<<<<< HEAD
 
 loadList("all", 0);
 
@@ -177,6 +212,59 @@ function updateList(e){
 }
 
 
+=======
+document.addEventListener("DOMContentLoaded", function(event) {
+
+	function loadList(){
+
+		var cards;
+
+		// ajax request voor het ophalen van de cards uit de database
+		var ajax = new XMLHttpRequest();
+		var data = 'function=read';
+		ajax.open("POST", "../model/lists.php", false);
+		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		ajax.onreadystatechange = function() {
+			if (ajax.readyState == 4 && ajax.status == 200) {
+			
+			var userLists = JSON.parse(ajax.responseText);
+
+			// ajax request voor het ophalen van de cards uit de database
+			var getcards = new XMLHttpRequest();
+			var data = 'function=read';
+			getcards.open("POST", "../model/cards.php", false);
+			getcards.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			getcards.onreadystatechange = function() {
+				if (getcards.status == 200) {
+					cards = JSON.parse(getcards.responseText);
+				}
+			};
+			getcards.send(data);
+
+				for(var i=0; i<userLists.length ; i++){
+					addList("", userLists[i]['id']);
+				}
+
+				setTimeout(function(){
+					for(var i=0; i<userLists.length ; i++){
+						for(var x = 0 ; x < cards.length ; x++){
+							if(userLists[i]['id'] == cards[x]['list_id']){
+
+								var elem = readList(userLists[i]['id']);
+									addCard(elem, "");
+							}
+						}
+					}					
+				}, 250)
+
+			}
+		};
+		ajax.send(data);
+	}
+
+	loadList();
+});
+>>>>>>> master
 function removeList(e){
 	// verberg alle card menus
 	hideCards();
@@ -192,6 +280,7 @@ function removeList(e){
 	var ajax = new XMLHttpRequest();
 	var data = `id=${id}&function=delete`;
 	ajax.open("POST", "../model/lists.php", false);
+<<<<<<< HEAD
 
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send(data);
@@ -200,9 +289,13 @@ function removeList(e){
 	var ajax = new XMLHttpRequest();
 	var data = `id=${id}&function=deleteList`;
 	ajax.open("POST", "../model/cards.php", false);
+=======
+>>>>>>> master
 
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send(data);
+
+	console.log(id);
 
 	//verwijder lijst uit DOM na de animatie
 	setTimeout(function(){
@@ -211,6 +304,7 @@ function removeList(e){
 }
 
 
+<<<<<<< HEAD
 
 function showSortMenu(){
 	document.querySelector('.sortMenu').classList.toggle('w3-hide');
@@ -246,3 +340,7 @@ filter.onclick = function(){
 for (var i = 0 ; i < 5 ; i++){
 	document.querySelectorAll(".colors span")[i].setAttribute("onclick", `filterList('filter', ${i})`);
 }
+=======
+	// console.log(readList(160));
+
+>>>>>>> master
