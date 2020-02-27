@@ -20,12 +20,6 @@
 			<button class="addList">Add a list +</button>
 		</main>
 		
-<<<<<<< HEAD
-=======
-		
-
-		
->>>>>>> master
 		<script type="text/javascript" src="../js/cards.js"></script>
 		<script type="text/javascript" src="../js/lists.js"></script>
 		<script type="text/javascript" src="../js/script.js"></script>

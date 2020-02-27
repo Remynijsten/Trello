@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 var colorcode = ["w3-green", "w3-yellow", "w3-orange", "w3-red", "w3-purple"];
 var timer = 50;
 
 function addCard(e, config, description, card_id, status){
 
-=======
-function addCard(e, config){
-
->>>>>>> master
 	// check of het maximale aantal cards is bereikt
 	var childCount = 0;
 
@@ -51,7 +46,6 @@ function addCard(e, config){
 		remove.setAttribute('onclick', 'deleteCard(this)');
 		remove.innerText = "Remove Card";
 
-<<<<<<< HEAD
 		var colorContainer = document.createElement('div');
 
 
@@ -73,25 +67,11 @@ function addCard(e, config){
 		var close = document.createElement('i');
 		close.setAttribute('onclick', 'hideCards()');
 		close.classList.add('fas', 'fa-angle-left', 'closeSubmenu', 'animated', 'pulse', 'infinite');
-=======
-		var openmenu = document.createElement('li');
-		openmenu.setAttribute('onclick', 'cardModal(this)');
-		openmenu.innerText = "Open Menu";
->>>>>>> master
-
-		var close = document.createElement('i');
-		close.setAttribute('onclick', 'hideCards()');
-		close.classList.add('fas', 'fa-angle-left', 'closeSubmenu', 'animated', 'pulse', 'infinite');
 
 		list.appendChild(remove);
-<<<<<<< HEAD
 		list.appendChild(colorContainer);
 		list.appendChild(close);
 
-=======
-		list.appendChild(openmenu);
-		list.appendChild(close);
->>>>>>> master
 
 		var menu = document.createElement('i');
 		menu.classList.add('fas', 'fa-ellipsis-h', 'menudots');
@@ -115,7 +95,6 @@ function addCard(e, config){
 			ajax.open("POST", "../model/cards.php", false);
 
 			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-<<<<<<< HEAD
 			ajax.send(data);
 
 			//returned de data van deze lijst en voegt deze toe als data
@@ -135,33 +114,10 @@ function addCard(e, config){
 		else{
 			container.setAttribute('data-id', card_id);
 		}
-=======
-			ajax.send(data);			
-		}
-
-		//returned de data van deze lijst en voegt deze toe als data
-		var ajax = new XMLHttpRequest();
-		var data = 'function=last';
-		ajax.open("POST", "/Trello/model/cards.php", true);
-
-		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		ajax.onreadystatechange = function() {
-			if (ajax.readyState == 4 && ajax.status == 200) {
-				var result = JSON.parse(ajax.responseText);
-				container.setAttribute('data-id', result.id);
-			}
-		};
-		ajax.send(data);
->>>>>>> master
 	}
 }
 
 function readCard(){
-<<<<<<< HEAD
-=======
-
-
->>>>>>> master
 }
 
 function updateCard(e){
@@ -190,11 +146,7 @@ function updateCard(e){
 			header.setAttribute("onclick", "updateCard(this)");
 			
 			var txt = document.createTextNode(name);
-<<<<<<< HEAD
 			input.value.length == 1 ? header.innerHTML = initName : txt.innerHTML = name;
-=======
-			input.value.length == 0 ? header.innerHTML = initName : txt.innerHTML = name;
->>>>>>> master
 
 			header.appendChild(txt);
 			board.insertBefore(header, input);
@@ -241,7 +193,6 @@ function deleteCard(e){
 function openCardMenu(e){
 	// sluit alle card menus
 	hideCards();
-<<<<<<< HEAD
 
 	e.parentNode.lastChild.classList.remove('w3-hide');
 	e.parentElement.parentElement.nextElementSibling.style.marginLeft = "12.5em";
@@ -291,8 +242,6 @@ function changeStatus(color){
 
 
 
-=======
->>>>>>> master
 
 }
 

@@ -49,7 +49,6 @@ function readList(){
 	global $conn;
 
 	$id = $_SESSION['id'];
-<<<<<<< HEAD
 
 	$stmt = $conn->prepare("SELECT * FROM `lists` WHERE user = :id");
 	$stmt->bindParam(':id', $id);
@@ -68,15 +67,6 @@ function updateList($data){
 	$stmt->bindParam(':description', $desc);
 	$stmt->bindParam(':id', $id);
 	$stmt->execute();
-=======
-
-	$stmt = $conn->prepare("SELECT * FROM `lists` WHERE user = :id");
-	$stmt->bindParam(':id', $id);
-	$stmt->execute();
-	$result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-	print_r(json_encode($result));
-}
->>>>>>> master
 
 	var_dump($data['description']);
 
@@ -119,10 +109,4 @@ function returnLast(){
 
 
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> master
 ?>
