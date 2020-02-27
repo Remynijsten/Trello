@@ -5,12 +5,12 @@ include 'connection.php';
 
 switch($_POST['function']){
 	case "create":
-	createList($_POST);
+		createList($_POST);
 	break;
 
-	// case "read":
-	// readList($_POST);
-	// break;
+	case "read":
+		readList($_POST);
+	break;
 
 	case "delete":
 		deleteList($_POST);
@@ -18,6 +18,10 @@ switch($_POST['function']){
 
 	case "last":
 		returnLast();
+	break;
+
+	case "update":
+		updateList($_POST);
 	break;
 }
 
@@ -41,16 +45,30 @@ function createList($data){
 
 }
 
-// function readList(){
-// 	$stmt = $conn->prepare("SELECT * FROM `lists` WHERE id");
-// 	$stmt->bindParam(':name', $_SESSION['name']);
-// 	$stmt->execute();
-// 	$result = $stmt->fetch(PDO::FETCH_ASSOC);
+function readList(){
+	global $conn;
 
-// 	print_r($result);
-// }
+	$id = $_SESSION['id'];
 
-function updateList(){
+	$stmt = $conn->prepare("SELECT * FROM `lists` WHERE user = :id");
+	$stmt->bindParam(':id', $id);
+	$stmt->execute();
+	$result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+	print_r(json_encode($result));
+}
+
+function updateList($data){
+	global $conn;
+
+	$desc = $data['description'];
+	$id = $data['id'];
+
+	$stmt = $conn->prepare("UPDATE `lists` SET name=:description WHERE id=:id");
+	$stmt->bindParam(':description', $desc);
+	$stmt->bindParam(':id', $id);
+	$stmt->execute();
+
+	var_dump($data['description']);
 
 }
 
@@ -58,11 +76,9 @@ function deleteList($data){
 	global $conn;
 
 	$id = $data['id'];
-	$user = $data['user'];
 
-	$stmt = $conn->prepare("DELETE FROM `lists` WHERE id=:id AND user=:user");
+	$stmt = $conn->prepare("DELETE FROM `lists` WHERE id=:id");
 	$stmt->bindParam(':id', $id);
-	$stmt->bindParam(':user', $user);
 	$stmt->execute();
 }
 
@@ -75,12 +91,6 @@ function returnLast(){
 
 	print_r(json_encode($result));
 }
-
-
-
-
-
-
 
 
 

@@ -18,6 +18,8 @@ main.boardsContainer{
 	display: flex;
     flex-wrap: nowrap;
     overflow: auto;
+    margin-top: 0em;
+    transition: 0.2s ease-out;
 	.board{
 		min-width: 20em;
 		margin: 1em;
@@ -55,6 +57,15 @@ main.boardsContainer{
 		}
 		.cardWrapper{
 			position: relative;
+			.label{
+				width: 2em;
+				height: 10px;
+				position: absolute;
+				right: 3.5em;
+				top: 1em;
+				border-radius: 5em;
+				z-index: 5;
+			}
 			.card{
 				width: 80%;
 				background: white;
@@ -63,6 +74,7 @@ main.boardsContainer{
 		        padding-left: 0.5rem;
 			    position: relative;
 			    display: inline-block;
+
 			    ul{
 					list-style: none;
 					position: absolute;
@@ -100,7 +112,13 @@ main.boardsContainer{
 			    	@include hoverFX;
 			    	line-height: 2.5em;
 			    }
-		    }
+			    i{
+					width: 2.5em;
+					text-align: center;
+					line-height: 2.5em;
+					@include hoverFX;
+			    }
+		    }	
 		}
 
 		footer{

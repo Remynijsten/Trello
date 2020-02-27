@@ -18,3 +18,4 @@ function showError(msg, color){
 		color == 'red' ? error.classList.remove('w3-red') : error.classList.remove('w3-green');
 	}, 2000);
 }
+

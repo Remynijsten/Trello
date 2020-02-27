@@ -15,19 +15,52 @@
     box-shadow: $shadow-light;
     position: relative;
     z-index: 2;
+    p.sortText{
+		cursor: pointer; 	
+    }
+    .sortMenu{
+	    min-width: 11em;
+	    min-height: 4em;
+    	span{
+    		cursor: pointer;
+    	}
+	    position: absolute;
+	    left: 12.5em;
+	    top: 3.5em;
+	    background: white;
+	    border-radius: 0.5em;
+	    ul{
+	    	list-style: none;
+	    	li{
+	    		span{
+				    margin: 0.5em 0.5em;
+	    		}
+	    		#sort{
+	    			border-bottom: 1px solid black;
+	    		}
+	    		#filter{
+
+	    		}
+	    	}
+	    	span{
+	    		width: 10px;
+	    		height: 15px;
+	    	}
+	    }
+    }
 	img{
-	    width: 100px;
+	    min-width: 100px;
 	    height: 40px;
         opacity: 0.5;
         cursor: pointer;
+        margin: 0 auto;
+	    padding: 0 30em;
         &:hover{
         	opacity: 0.8;
         }
 	}
 	p{
 	    display: inline-block;
-	    position: absolute;
-	    right: 8em;
 	    color: white;
 	    line-height: 40px;
 	}

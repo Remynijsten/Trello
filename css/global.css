@@ -16,19 +16,47 @@
   position: relative;
   z-index: 2;
 }
+.navBar p.sortText {
+  cursor: pointer;
+}
+.navBar .sortMenu {
+  min-width: 11em;
+  min-height: 4em;
+  position: absolute;
+  left: 12.5em;
+  top: 3.5em;
+  background: white;
+  border-radius: 0.5em;
+}
+.navBar .sortMenu span {
+  cursor: pointer;
+}
+.navBar .sortMenu ul {
+  list-style: none;
+}
+.navBar .sortMenu ul li span {
+  margin: 0.5em 0.5em;
+}
+.navBar .sortMenu ul li #sort {
+  border-bottom: 1px solid black;
+}
+.navBar .sortMenu ul span {
+  width: 10px;
+  height: 15px;
+}
 .navBar img {
-  width: 100px;
+  min-width: 100px;
   height: 40px;
   opacity: 0.5;
   cursor: pointer;
+  margin: 0 auto;
+  padding: 0 30em;
 }
 .navBar img:hover {
   opacity: 0.8;
 }
 .navBar p {
   display: inline-block;
-  position: absolute;
-  right: 8em;
   color: white;
   line-height: 40px;
 }

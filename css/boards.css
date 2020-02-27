@@ -8,6 +8,8 @@ main.boardsContainer {
   display: flex;
   flex-wrap: nowrap;
   overflow: auto;
+  margin-top: 0em;
+  transition: 0.2s ease-out;
 }
 main.boardsContainer .board {
   min-width: 20em;
@@ -51,6 +53,15 @@ main.boardsContainer .board .headerInput {
 }
 main.boardsContainer .board .cardWrapper {
   position: relative;
+}
+main.boardsContainer .board .cardWrapper .label {
+  width: 2em;
+  height: 10px;
+  position: absolute;
+  right: 3.5em;
+  top: 1em;
+  border-radius: 5em;
+  z-index: 5;
 }
 main.boardsContainer .board .cardWrapper .card {
   width: 80%;
@@ -103,6 +114,16 @@ main.boardsContainer .board .cardWrapper ul li {
   line-height: 2.5em;
 }
 main.boardsContainer .board .cardWrapper ul li:hover {
+  transform: scale(0.9, 0.9);
+}
+main.boardsContainer .board .cardWrapper ul i {
+  width: 2.5em;
+  text-align: center;
+  line-height: 2.5em;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+}
+main.boardsContainer .board .cardWrapper ul i:hover {
   transform: scale(0.9, 0.9);
 }
 main.boardsContainer .board footer {

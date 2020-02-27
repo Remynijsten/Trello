@@ -20,10 +20,8 @@
 			<button class="addList">Add a list +</button>
 		</main>
 		
-		
-
-		<script type="text/javascript" src="../js/lists.js"></script>
 		<script type="text/javascript" src="../js/cards.js"></script>
+		<script type="text/javascript" src="../js/lists.js"></script>
 		<script type="text/javascript" src="../js/script.js"></script>
 		<script src="https://kit.fontawesome.com/970adb2e15.js" crossorigin="anonymous"></script>
 	</body>
